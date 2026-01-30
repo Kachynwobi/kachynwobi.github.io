@@ -1,107 +1,116 @@
-<section>
-  <h2 class="text-2xl font-semibold mb-6">Selected Map & Design Projects</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kachy Nwobi — Interactive Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.20.1/mapbox-gl.js"></script>
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.20.1/mapbox-gl.css" rel="stylesheet" />
+  <link rel="icon" href="favicon.ico">
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
 
-  <div class="grid md:grid-cols-2 gap-10">
+  <!-- Header -->
+  <header class="bg-white shadow p-6 text-center">
+    <h1 class="text-3xl font-bold">Kachy Nwobi</h1>
+    <p class="mt-2 text-gray-700">Map Designer & Geospatial Data Engineer</p>
+    <p class="mt-1 text-gray-600">Philadelphia, PA • 484-844-4565 • <a href="mailto:kachynwobi@gmail.com" class="text-blue-600 underline">kachynwobi@gmail.com</a></p>
+    <a href="https://aurabypaula.com/" class="mt-2 inline-block text-blue-600 underline">View Full Portfolio Website</a>
+  </header>
 
-    <!-- Interactive Storymap -->
-    <div class="group">
-      <img 
-        src="images/interactive_storymap.png"
-        alt="Interactive storymap showing spatial analysis with narrative sidebar and map popups"
-        class="rounded-lg shadow-md mb-3 group-hover:shadow-xl transition"
-      />
-      <h3 class="text-xl font-bold">Interactive Storymap</h3>
-      <p class="text-gray-700 text-sm mt-1">
-        Narrative-driven interactive map combining spatial analysis, visual hierarchy, and storytelling.
-      </p>
-      <p class="text-gray-500 text-xs mt-1">
-        Skills: cartographic design, map storytelling, spatial QA
-      </p>
-      <a href="https://storymaps.arcgis.com/stories/1564587abea34c67886289ff2251d4b1"
-         class="text-blue-600 underline text-sm mt-2 inline-block">
-        View project →
-      </a>
-    </div>
+  <!-- Portfolio Section -->
+  <main class="max-w-5xl mx-auto p-6 space-y-16">
+    <section>
+      <h2 class="text-2xl font-semibold mb-6">Selected Map & Design Projects</h2>
+      <div class="space-y-12">
 
-    <!-- GeoBIM Schedule Polygons -->
-    <div class="group">
-      <img 
-        src="geobim_schedule_polygons.png"
-        alt="3D GeoBIM map with color-coded schedule polygons over building footprints"
-        class="rounded-lg shadow-md mb-3 group-hover:shadow-xl transition"
-      />
-      <h3 class="text-xl font-bold">GeoBIM Schedule Polygons</h3>
-      <p class="text-gray-700 text-sm mt-1">
-        Web-ready GeoBIM visualization using vector polygons to represent construction phases.
-      </p>
-      <p class="text-gray-500 text-xs mt-1">
-        Skills: vector data optimization, spatial workflows, AEC visualization
-      </p>
-      <a href="https://www.esri.com/arcgis-blog/products/geobim/aec/generating-geobim-schedule-polygons-using-arcgis-pro"
-         class="text-blue-600 underline text-sm mt-2 inline-block">
-        Read blog →
-      </a>
-    </div>
+        <!-- Project 1: Interactive Storymap -->
+        <div>
+          <h3 class="text-xl font-bold mb-2">Interactive Storymap</h3>
+          <p class="text-gray-700 mb-2">Created an interactive storymap combining spatial analysis and narrative elements to communicate complex datasets visually.</p>
+          <a href="https://storymaps.arcgis.com/stories/1564587abea34c67886289ff2251d4b1" class="text-blue-600 underline">View Project</a>
+        </div>
 
-    <!-- Customizing GeoBIM Maps -->
-    <div class="group">
-      <img 
-        src="customizing_geobim_maps.png"
-        alt="Custom GeoBIM web map with layered site plan and legend controls"
-        class="rounded-lg shadow-md mb-3 group-hover:shadow-xl transition"
-      />
-      <h3 class="text-xl font-bold">Customizing GeoBIM Maps</h3>
-      <p class="text-gray-700 text-sm mt-1">
-        Layered GeoBIM web maps focused on usability, clarity, and stakeholder communication.
-      </p>
-      <p class="text-gray-500 text-xs mt-1">
-        Skills: map usability, layer management, cartographic clarity
-      </p>
-      <a href="https://www.esri.com/arcgis-blog/products/geobim/aec/customizing-geobim-web-maps-and-scenes"
-         class="text-blue-600 underline text-sm mt-2 inline-block">
-        Read blog →
-      </a>
-    </div>
+        <!-- Project 2: GeoBIM Schedule Polygons with Mapbox GL JS Preview -->
+        <div>
+          <h3 class="text-xl font-bold mb-2">GeoBIM Schedule Polygons</h3>
+          <p class="text-gray-700 mb-2">Developed geospatial schedule polygons for AEC workflows, optimized vector data for web mapping performance.</p>
+          <div id="map-geobim" class="w-full h-64 rounded shadow mb-2"></div>
+          <a href="https://www.esri.com/arcgis-blog/products/geobim/aec/generating-geobim-schedule-polygons-using-arcgis-pro" class="text-blue-600 underline">View Project Details</a>
+        </div>
 
-    <!-- Midwest Floods -->
-    <div class="group">
-      <img 
-        src="midwest_floods_social_vulnerability.png"
-        alt="Midwest United States map showing social vulnerability and flood risk using color gradients"
-        class="rounded-lg shadow-md mb-3 group-hover:shadow-xl transition"
-      />
-      <h3 class="text-xl font-bold">Midwest Floods & Social Vulnerability</h3>
-      <p class="text-gray-700 text-sm mt-1">
-        Spatial analysis highlighting flood risk and socially vulnerable populations.
-      </p>
-      <p class="text-gray-500 text-xs mt-1">
-        Skills: thematic mapping, data storytelling, equity-focused analysis
-      </p>
-      <a href="https://www.policymap.com/blog/the-midwest-floods-and-socially-vulnerable-populations"
-         class="text-blue-600 underline text-sm mt-2 inline-block">
-        View analysis →
-      </a>
-    </div>
+        <!-- Project 3: Customizing GeoBIM Maps -->
+        <div>
+          <h3 class="text-xl font-bold mb-2">Customizing GeoBIM Maps</h3>
+          <p class="text-gray-700 mb-2">Created customized GeoBIM web maps and scenes, improving usability and visual clarity for project stakeholders.</p>
+          <a href="https://www.esri.com/arcgis-blog/products/geobim/aec/customizing-geobim-web-maps-and-scenes" class="text-blue-600 underline">View Project</a>
+        </div>
 
-    <!-- Aura by Paula -->
-    <div class="group md:col-span-2">
-      <img 
-        src="aura_by_paula.png"
-        alt="Aura by Paula website homepage featuring lifestyle brand design and interactive layout"
-        class="rounded-lg shadow-md mb-3 group-hover:shadow-xl transition"
-      />
-      <h3 class="text-xl font-bold">Aura by Paula — Creative Direction</h3>
-      <p class="text-gray-700 text-sm mt-1">
-        Visual storytelling, interaction design, and brand-led digital experiences.
-      </p>
-      <p class="text-gray-500 text-xs mt-1">
-        Skills: visual systems, UX sensibility, narrative design
-      </p>
-      <a href="https://aurabypaula.com/"
-         class="text-blue-600 underline text-sm mt-2 inline-block">
-        Visit site →
-      </a>
-    </div>
+        <!-- Project 4: Midwest Floods / Social Vulnerability -->
+        <div>
+          <h3 class="text-xl font-bold mb-2">Midwest Floods & Socially Vulnerable Populations</h3>
+          <p class="text-gray-700 mb-2">Analyzed and mapped social vulnerability in the Midwest during flood events, highlighting at-risk communities.</p>
+          <div id="map-floods" class="w-full h-64 rounded shadow mb-2"></div>
+          <a href="https://www.policymap.com/blog/the-midwest-floods-and-socially-vulnerable-populations" class="text-blue-600 underline">View Blog Post</a>
+        </div>
 
-  </div>
-</section>
+        <!-- Project 5: Aura by Paula -->
+        <div>
+          <h3 class="text-xl font-bold mb-2">Creative & Interactive Work — Aura by Paula</h3>
+          <p class="text-gray-700 mb-2">Led visual design, interactive storytelling, and layout for a lifestyle brand.</p>
+          <a href="https://aurabypaula.com/" class="text-blue-600 underline">View Project</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Skills & Expertise</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-1">
+        <li>Map design & cartography: vector & raster styling, thematic mapping, visual hierarchy, spatial QA</li>
+        <li>Interactive and web mapping, vector tiles, Mapbox GL–based workflows</li>
+        <li>Geospatial data processing with Python, SQL, and GDAL</li>
+        <li>Design & prototyping: Figma, Adobe Creative Suite, Canva</li>
+        <li>Cross-functional collaboration and product-focused design</li>
+      </ul>
+    </section>
+
+    <!-- Education Section -->
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Education</h2>
+      <p class="text-gray-700">M.S. Geospatial Technology for Geodesign — Thomas Jefferson University</p>
+      <p class="text-gray-700">B.S. Environmental Engineering, Minor in Finance — Drexel University</p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white shadow mt-16 p-6 text-center text-gray-600">
+    &copy; 2026 Kachy Nwobi
+  </footer>
+
+  <!-- Mapbox GL JS Initialization -->
+  <script>
+    mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+
+    // GeoBIM Map Example
+    const mapGeoBIM = new mapboxgl.Map({
+      container: 'map-geobim',
+      style: 'mapbox://styles/mapbox/streets-v12',
+      center: [-118.2437, 34.0522],
+      zoom: 10
+    });
+
+    // Midwest Floods Map Example
+    const mapFloods = new mapboxgl.Map({
+      container: 'map-floods',
+      style: 'mapbox://styles/mapbox/light-v11',
+      center: [-90.1994, 38.6270],
+      zoom: 5
+    });
+
+    // Optional: Add basic markers or layers here
+  </script>
+</body>
+</html>
