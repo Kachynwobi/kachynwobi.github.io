@@ -1,242 +1,531 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Kachy Nwobi — Map Designer & Geospatial Product Engineer. Interactive, human-centered maps for decision-making." />
-  <title>Kachy Nwobi | Map Designer & Geospatial Product Engineer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kachy Nwobi — Map Design & Geospatial Product Portfolio</title>
 
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Minimal “soft-lux / dark-glass” styling (combines both ideas) -->
   <style>
     :root{
       --bg:#0b0f14;
-      --panel:rgba(255,255,255,.06);
       --text:rgba(255,255,255,.92);
-      --muted:rgba(255,255,255,.68);
-      --faint:rgba(255,255,255,.48);
+      --muted:rgba(255,255,255,.70);
+      --faint:rgba(255,255,255,.50);
       --line:rgba(255,255,255,.12);
+      --glass:rgba(255,255,255,.05);
+      --glass2:rgba(255,255,255,.07);
       --accent:#b7f7d1;
       --accent2:#d8c8ff;
-      --radius:18px;
-      --radius2:26px;
-      --max:1080px;
-      --font:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
     }
-
-    *{box-sizing:border-box}
     body{
-      margin:0;
-      font-family:var(--font);
-      color:var(--text);
       background:
-        radial-gradient(900px 500px at 15% 10%, rgba(183,247,209,.15), transparent 60%),
-        radial-gradient(900px 500px at 85% 20%, rgba(216,200,255,.15), transparent 60%),
+        radial-gradient(1100px 650px at 14% 10%, rgba(183,247,209,.16), transparent 55%),
+        radial-gradient(1000px 600px at 84% 18%, rgba(216,200,255,.16), transparent 55%),
+        radial-gradient(900px 520px at 55% 95%, rgba(183,247,209,.09), transparent 60%),
         var(--bg);
-      line-height:1.45;
+      color: var(--text);
     }
-
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:var(--max);margin:0 auto;padding:28px 18px 70px}
-
-    header{
-      display:flex;justify-content:space-between;align-items:center;
-      padding:14px 18px;
-      border:1px solid var(--line);
-      border-radius:var(--radius2);
-      background:rgba(255,255,255,.03);
-      position:sticky;top:14px;z-index:10;
+    .glass{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid var(--line);
+      backdrop-filter: blur(10px);
     }
-
-    nav a{margin-left:14px;font-size:13px;color:var(--muted)}
-    nav a:hover{color:var(--text)}
-
-    .hero{
-      margin-top:26px;
-      padding:44px 24px;
-      border:1px solid var(--line);
-      border-radius:var(--radius2);
-      background:rgba(255,255,255,.04);
+    .glass-soft{
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--line);
+      backdrop-filter: blur(10px);
     }
-
-    h1{
-      font-size:clamp(30px,4vw,44px);
-      margin:12px 0 10px;
-      letter-spacing:-0.8px;
+    .chip{
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.18);
+      color: var(--muted);
     }
+    .muted{ color: var(--muted); }
+    .faint{ color: var(--faint); }
 
-    .sub{
-      max-width:760px;
-      color:var(--muted);
-      font-size:16px;
+    /* Image sizing (keeps your image rules) */
+    .project-img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+      object-position:center;
     }
-
-    .cta{margin-top:18px}
-    .btn{
-      display:inline-block;
-      padding:10px 16px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:rgba(255,255,255,.05);
-      font-size:13px;
-      margin-right:10px;
+    .project-img-portrait{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+      object-position:center;
+      background-color:#0f141b;
     }
-
-    section{margin-top:34px}
-
-    .section-title{
-      display:flex;justify-content:space-between;
-      margin-bottom:14px;
+    @media (min-width: 768px){
+      .project-img{ height:240px; }
+      .project-img-portrait{ height:360px; }
     }
-    .section-title h3{
-      margin:0;font-size:14px;text-transform:uppercase;letter-spacing:.6px;
+    /* Link underline polish */
+    .linkish{
+      text-decoration: underline;
+      text-decoration-color: rgba(183,247,209,.5);
+      text-underline-offset: 4px;
     }
-    .section-title span{font-size:12px;color:var(--faint)}
-
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-      gap:14px;
-    }
-
-    .card{
-      padding:18px;
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      background:rgba(255,255,255,.04);
-    }
-
-    .card h4{margin:0 0 8px}
-    .card p{margin:0;color:var(--muted);font-size:13px}
-
-    footer{
-      margin-top:40px;
-      padding-top:16px;
-      border-top:1px solid var(--line);
-      font-size:12px;
-      color:var(--faint);
-      display:flex;justify-content:space-between;flex-wrap:wrap;
+    .linkish:hover{
+      text-decoration-color: rgba(216,200,255,.7);
+      opacity:.95;
     }
   </style>
 </head>
 
-<body>
-<div class="wrap">
+<body class="font-sans">
+  <!-- Top Nav -->
+  <header class="sticky top-4 z-50">
+    <div class="max-w-6xl mx-auto px-4">
+      <div class="glass rounded-2xl shadow-xl px-4 py-3 flex items-center justify-between">
+        <a href="#top" class="flex items-center gap-3">
+          <span class="w-3 h-3 rounded-full" style="background: linear-gradient(135deg, var(--accent), var(--accent2)); box-shadow: 0 0 0 6px rgba(183,247,209,.10);"></span>
+          <div class="leading-tight">
+            <div class="font-semibold tracking-wide">Kachy Nwobi</div>
+            <div class="text-xs muted">Map Designer • Geospatial Product Engineer</div>
+          </div>
+        </a>
 
-<header>
-  <strong>Kachy Nwobi</strong>
-  <nav>
-    <a href="#work">Work</a>
-    <a href="#case">Case Study</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
+        <nav class="hidden md:flex items-center gap-3 text-sm">
+          <a class="px-3 py-2 rounded-full hover:bg-white/5 muted" href="#work">Work</a>
+          <a class="px-3 py-2 rounded-full hover:bg-white/5 muted" href="#case-study">Case Study</a>
+          <a class="px-3 py-2 rounded-full hover:bg-white/5 muted" href="#explorations">Explorations</a>
+          <a class="px-3 py-2 rounded-full hover:bg-white/5 muted" href="#about">About</a>
+          <a class="px-3 py-2 rounded-full hover:bg-white/5 muted" href="#contact">Contact</a>
+        </nav>
 
-<main class="hero">
-  <h1>Map Designer & Geospatial Product Engineer</h1>
-  <p class="sub">
-    I design interactive, human-centered maps that turn complex spatial data into clear product experiences.
-    My work bridges cartography, UX, and frontend development to support real-world decision-making.
-  </p>
+        <a href="#contact" class="text-xs md:text-sm px-4 py-2 rounded-full glass-soft hover:bg-white/5">
+          Let’s connect
+        </a>
+      </div>
+    </div>
+  </header>
 
-  <div class="cta">
-    <a class="btn" href="#case">View flagship case study</a>
-    <a class="btn" href="#work">Selected work</a>
-  </div>
-</main>
+  <!-- Hero -->
+  <main id="top" class="max-w-6xl mx-auto px-4 pt-10 pb-8">
+    <section class="glass rounded-3xl shadow-2xl px-6 md:px-10 py-10 md:py-12 overflow-hidden">
+      <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 glass-soft text-xs muted">
+        <span class="font-semibold" style="color: var(--text);">Based in:</span>
+        Philadelphia, PA • Open to NYC / Remote
+      </div>
 
-<section id="work">
-  <div class="section-title">
-    <h3>Selected work</h3>
-    <span>Mapping products & spatial storytelling</span>
-  </div>
+      <h1 class="mt-5 text-3xl md:text-5xl font-bold tracking-tight">
+        Map Designer &amp; Geospatial Product Engineer
+      </h1>
 
-  <div class="grid">
-    <div class="card">
-      <h4>Interactive Flood Risk Explorer</h4>
-      <p>
-        Designed an interactive map experience to explore flood exposure and vulnerability across regions.
-        Focused on clarity, accessibility, and progressive detail rather than visual overload.
+      <p class="mt-4 max-w-3xl text-base md:text-lg muted">
+        I design interactive, human-centered maps that turn complex spatial data into clear product experiences.
+        My work blends cartography, UX, and engineering — with a focus on legibility, accessibility, and decision-making.
       </p>
+
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="#case-study" class="px-5 py-3 rounded-full glass-soft hover:bg-white/5 text-sm">
+          View flagship case study
+        </a>
+        <a href="#work" class="px-5 py-3 rounded-full glass-soft hover:bg-white/5 text-sm">
+          See selected work
+        </a>
+        <a href="mailto:kachynwobi@gmail.com" class="px-5 py-3 rounded-full glass-soft hover:bg-white/5 text-sm">
+          Email
+          <span class="faint text-xs ml-1">kachynwobi@gmail.com</span>
+        </a>
+      </div>
+
+      <div class="mt-8 grid md:grid-cols-2 gap-4">
+        <div class="glass-soft rounded-2xl p-5">
+          <div class="font-semibold">Core strengths</div>
+          <p class="mt-2 text-sm muted">
+            Product-minded cartography • map interaction patterns • visual hierarchy & accessibility •
+            spatial data pipelines • communicating complex spatial stories clearly.
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="chip text-xs rounded-full px-3 py-1">Map UX</span>
+            <span class="chip text-xs rounded-full px-3 py-1">Cartography</span>
+            <span class="chip text-xs rounded-full px-3 py-1">Design systems</span>
+            <span class="chip text-xs rounded-full px-3 py-1">Spatial data engineering</span>
+            <span class="chip text-xs rounded-full px-3 py-1">Prototyping</span>
+          </div>
+        </div>
+
+        <div class="glass-soft rounded-2xl p-5">
+          <div class="font-semibold">Tooling (what I ship with)</div>
+          <p class="mt-2 text-sm muted">
+            ArcGIS Pro & StoryMaps • ArcGIS Online • Python • SQL • GDAL • Figma • Adobe Creative Suite
+          </p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <span class="chip text-xs rounded-full px-3 py-1">ArcGIS</span>
+            <span class="chip text-xs rounded-full px-3 py-1">Python</span>
+            <span class="chip text-xs rounded-full px-3 py-1">SQL</span>
+            <span class="chip text-xs rounded-full px-3 py-1">GDAL</span>
+            <span class="chip text-xs rounded-full px-3 py-1">Figma</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Contact line (matches your earlier header info, but cleaner) -->
+      <div class="mt-8 text-sm muted">
+        Philadelphia, PA • 484-844-4565 •
+        <a href="mailto:kachynwobi@gmail.com" class="linkish">kachynwobi@gmail.com</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Work / Projects (your full project grid + images) -->
+  <section id="work" class="max-w-6xl mx-auto px-4 pb-10">
+    <div class="flex items-end justify-between gap-4 mb-5">
+      <h2 class="text-xl md:text-2xl font-semibold">Selected Map & Design Projects</h2>
+      <div class="text-xs faint hidden md:block">Maps • GeoBIM • Data storytelling • Creative direction</div>
     </div>
 
-    <div class="card">
-      <h4>GeoBIM Integration for AEC Workflows</h4>
-      <p>
-        Integrated geospatial context into AEC workflows to help teams navigate assets spatially and
-        understand project conditions at multiple scales.
-      </p>
+    <div class="grid md:grid-cols-2 gap-8">
+
+      <!-- Interactive Storymap -->
+      <article class="glass-soft rounded-2xl p-5 shadow-xl">
+        <img
+          src="images/interactive_storymap.png"
+          alt="Interactive storymap with spatial analysis and narrative sidebar"
+          class="project-img rounded-xl mb-4 border border-white/10"
+          loading="lazy"
+        />
+        <h3 class="text-lg font-semibold">Interactive Storymap</h3>
+        <p class="mt-2 text-sm muted">
+          Narrative-driven interactive map combining spatial analysis, visual hierarchy, and storytelling.
+        </p>
+
+        <details class="mt-4 text-sm">
+          <summary class="cursor-pointer font-medium linkish">What I did / Tools / Outcome</summary>
+          <div class="mt-3 rounded-xl glass p-4 space-y-2 text-sm muted">
+            <div><span class="font-semibold" style="color:var(--text)">What I did:</span> Designed narrative flow, map layout, and cartographic styling with spatial QA.</div>
+            <div><span class="font-semibold" style="color:var(--text)">Tools:</span> ArcGIS StoryMaps, ArcGIS Pro, Figma (concepting).</div>
+            <div><span class="font-semibold" style="color:var(--text)">Outcome:</span> Clear, engaging story experience that communicates spatial insight efficiently.</div>
+          </div>
+        </details>
+
+        <a
+          href="https://storymaps.arcgis.com/stories/1564587abea34c67886289ff2251d4b1"
+          class="inline-block mt-4 text-sm linkish"
+          target="_blank" rel="noreferrer"
+        >
+          View project →
+        </a>
+      </article>
+
+      <!-- GeoBIM Schedule Polygons -->
+      <article class="glass-soft rounded-2xl p-5 shadow-xl">
+        <img
+          src="images/geobim_schedule_polygons.png"
+          alt="GeoBIM map showing color-coded construction schedule polygons"
+          class="project-img rounded-xl mb-4 border border-white/10"
+          loading="lazy"
+        />
+        <h3 class="text-lg font-semibold">GeoBIM Schedule Polygons</h3>
+        <p class="mt-2 text-sm muted">
+          Web-ready GeoBIM visualization using vector polygons to represent construction phases.
+        </p>
+
+        <details class="mt-4 text-sm">
+          <summary class="cursor-pointer font-medium linkish">What I did / Tools / Outcome</summary>
+          <div class="mt-3 rounded-xl glass p-4 space-y-2 text-sm muted">
+            <div><span class="font-semibold" style="color:var(--text)">What I did:</span> Built and validated polygon workflows optimized for web visualization.</div>
+            <div><span class="font-semibold" style="color:var(--text)">Tools:</span> ArcGIS Pro, GDAL, Python.</div>
+            <div><span class="font-semibold" style="color:var(--text)">Outcome:</span> Clear phase-based visualization supporting AEC coordination.</div>
+          </div>
+        </details>
+
+        <a
+          href="https://www.esri.com/arcgis-blog/products/geobim/aec/generating-geobim-schedule-polygons-using-arcgis-pro"
+          class="inline-block mt-4 text-sm linkish"
+          target="_blank" rel="noreferrer"
+        >
+          Read blog →
+        </a>
+      </article>
+
+      <!-- Customizing GeoBIM Maps -->
+      <article class="glass-soft rounded-2xl p-5 shadow-xl">
+        <img
+          src="images/customizing_geobim_maps.png"
+          alt="Custom GeoBIM web map with layered controls and legend"
+          class="project-img rounded-xl mb-4 border border-white/10"
+          loading="lazy"
+        />
+        <h3 class="text-lg font-semibold">Customizing GeoBIM Maps</h3>
+        <p class="mt-2 text-sm muted">
+          Layered GeoBIM web maps focused on usability and cartographic clarity.
+        </p>
+
+        <details class="mt-4 text-sm">
+          <summary class="cursor-pointer font-medium linkish">What I did / Tools / Outcome</summary>
+          <div class="mt-3 rounded-xl glass p-4 space-y-2 text-sm muted">
+            <div><span class="font-semibold" style="color:var(--text)">What I did:</span> Improved layer organization and visual hierarchy.</div>
+            <div><span class="font-semibold" style="color:var(--text)">Tools:</span> ArcGIS Online, ArcGIS Pro.</div>
+            <div><span class="font-semibold" style="color:var(--text)">Outcome:</span> More intuitive and readable GeoBIM maps.</div>
+          </div>
+        </details>
+
+        <a
+          href="https://www.esri.com/arcgis-blog/products/geobim/aec/customizing-geobim-web-maps-and-scenes"
+          class="inline-block mt-4 text-sm linkish"
+          target="_blank" rel="noreferrer"
+        >
+          Read blog →
+        </a>
+      </article>
+
+      <!-- Midwest Floods -->
+      <article class="glass-soft rounded-2xl p-5 shadow-xl">
+        <img
+          src="images/midwest_floods_social_vulnerability.png"
+          alt="Midwest map showing flood risk and social vulnerability"
+          class="project-img rounded-xl mb-4 border border-white/10"
+          loading="lazy"
+        />
+        <h3 class="text-lg font-semibold">Midwest Floods &amp; Social Vulnerability</h3>
+        <p class="mt-2 text-sm muted">
+          Thematic mapping highlighting flood risk and socially vulnerable populations.
+        </p>
+
+        <details class="mt-4 text-sm">
+          <summary class="cursor-pointer font-medium linkish">What I did / Tools / Outcome</summary>
+          <div class="mt-3 rounded-xl glass p-4 space-y-2 text-sm muted">
+            <div><span class="font-semibold" style="color:var(--text)">What I did:</span> Cleaned and validated datasets; supported thematic visualization.</div>
+            <div><span class="font-semibold" style="color:var(--text)">Tools:</span> SQL, ArcGIS.</div>
+            <div><span class="font-semibold" style="color:var(--text)">Outcome:</span> Clear visualization of risk supporting data storytelling.</div>
+          </div>
+        </details>
+
+        <a
+          href="https://www.policymap.com/blog/the-midwest-floods-and-socially-vulnerable-populations"
+          class="inline-block mt-4 text-sm linkish"
+          target="_blank" rel="noreferrer"
+        >
+          View analysis →
+        </a>
+      </article>
+
+      <!-- Aura by Paula (full width like your version, but styled like the dark “glass” portfolio) -->
+      <article class="md:col-span-2 glass-soft rounded-2xl p-5 md:p-6 shadow-2xl">
+        <div class="grid md:grid-cols-2 gap-6 items-start">
+          <img
+            src="images/Mirrorconcept_2.png"
+            alt="Aura by Paula smart mirror concept displaying wellness and outfit insights"
+            class="project-img-portrait rounded-xl border border-white/10"
+            loading="lazy"
+          />
+          <div>
+            <h3 class="text-lg font-semibold">Aura by Paula — Creative Direction</h3>
+            <p class="mt-2 text-sm muted">
+              Visual storytelling and interaction design for a lifestyle brand — blending fashion, wellness, and technology.
+            </p>
+
+            <details class="mt-4 text-sm">
+              <summary class="cursor-pointer font-medium linkish">What I did / Tools / Outcome</summary>
+              <div class="mt-3 rounded-xl glass p-4 space-y-2 text-sm muted">
+                <div><span class="font-semibold" style="color:var(--text)">What I did:</span> Led creative direction, layout, and narrative design.</div>
+                <div><span class="font-semibold" style="color:var(--text)">Tools:</span> Figma, Adobe Creative Suite.</div>
+                <div><span class="font-semibold" style="color:var(--text)">Outcome:</span> Cohesive, modern digital brand experience.</div>
+              </div>
+            </details>
+
+            <a
+              href="https://aurabypaula.com/"
+              class="inline-block mt-4 text-sm linkish"
+              target="_blank" rel="noreferrer"
+            >
+              Visit site →
+            </a>
+
+            <div class="mt-5 flex flex-wrap gap-2">
+              <span class="chip text-xs rounded-full px-3 py-1">Creative direction</span>
+              <span class="chip text-xs rounded-full px-3 py-1">Interaction design</span>
+              <span class="chip text-xs rounded-full px-3 py-1">Brand storytelling</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Flagship Case Study (from the “product-thinking” version, but tool-agnostic) -->
+  <section id="case-study" class="max-w-6xl mx-auto px-4 pb-10">
+    <div class="flex items-end justify-between gap-4 mb-5">
+      <h2 class="text-xl md:text-2xl font-semibold">Flagship Case Study</h2>
+      <div class="text-xs faint hidden md:block">Problem → design decisions → outcomes</div>
     </div>
 
-    <div class="card">
-      <h4>Midwest Flood Vulnerability Mapping</h4>
-      <p>
-        Created thematic maps and narratives that communicate where flood risk intersects with
-        social and demographic vulnerability for non-technical audiences.
+    <article class="glass rounded-3xl p-6 md:p-8 shadow-2xl">
+      <h3 class="text-lg md:text-xl font-semibold">Flood Risk Visualization for Urban Decision-Making</h3>
+      <p class="mt-3 text-sm md:text-base muted max-w-4xl">
+        Urban planners and community stakeholders needed a faster way to understand where flood risk intersects with
+        vulnerable populations. I translated complex datasets into a map-based experience optimized for clarity,
+        interpretability, and scale-aware exploration.
       </p>
+
+      <div class="mt-6 grid md:grid-cols-2 gap-4">
+        <div class="glass-soft rounded-2xl p-5">
+          <div class="font-semibold">Context</div>
+          <ul class="mt-2 text-sm muted list-disc pl-5 space-y-1">
+            <li><span style="color:var(--text)" class="font-semibold">Users:</span> planners, policy teams, community stakeholders</li>
+            <li><span style="color:var(--text)" class="font-semibold">Problem:</span> fragmented + static outputs, hard to compare regions</li>
+            <li><span style="color:var(--text)" class="font-semibold">Goal:</span> legible at multiple scales, accessible interpretation</li>
+          </ul>
+        </div>
+
+        <div class="glass-soft rounded-2xl p-5">
+          <div class="font-semibold">My role</div>
+          <ul class="mt-2 text-sm muted list-disc pl-5 space-y-1">
+            <li>Map + interaction design</li>
+            <li>Data QA + spatial validation</li>
+            <li>Visual system decisions (hierarchy, labels, color)</li>
+            <li>Prototyping & communication</li>
+          </ul>
+        </div>
+
+        <div class="glass-soft rounded-2xl p-5">
+          <div class="font-semibold">Key design decisions</div>
+          <ul class="mt-2 text-sm muted list-disc pl-5 space-y-1">
+            <li><span style="color:var(--text)" class="font-semibold">Hierarchy:</span> muted context so data leads</li>
+            <li><span style="color:var(--text)" class="font-semibold">Accessibility:</span> color ramp legibility + contrast discipline</li>
+            <li><span style="color:var(--text)" class="font-semibold">Declutter:</span> simplified boundaries to reduce noise</li>
+            <li><span style="color:var(--text)" class="font-semibold">Progressive detail:</span> reveal complexity as users zoom</li>
+          </ul>
+        </div>
+
+        <div class="glass-soft rounded-2xl p-5">
+          <div class="font-semibold">Outcome</div>
+          <ul class="mt-2 text-sm muted list-disc pl-5 space-y-1">
+            <li>Improved interpretability for non-technical audiences</li>
+            <li>Clear visual priority across zoom levels</li>
+            <li>Reusable mapping pattern for other risk datasets</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-2">
+        <span class="chip text-xs rounded-full px-3 py-1">Clarity over density</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Scale-aware design</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Accessible cartography</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Human-centered mapping</span>
+      </div>
+    </article>
+  </section>
+
+  <!-- Explorations (placeholders you can replace with screenshots) -->
+  <section id="explorations" class="max-w-6xl mx-auto px-4 pb-10">
+    <div class="flex items-end justify-between gap-4 mb-5">
+      <h2 class="text-xl md:text-2xl font-semibold">Map Design & Visual Explorations</h2>
+      <div class="text-xs faint hidden md:block">Basemap • color • labels • UI</div>
     </div>
-  </div>
-</section>
 
-<section id="case">
-  <div class="section-title">
-    <h3>Flagship case study</h3>
-    <span>Design thinking + spatial decisions</span>
-  </div>
+    <div class="grid md:grid-cols-3 gap-4">
+      <div class="glass-soft rounded-2xl p-5">
+        <div class="font-semibold">Basemap hierarchy</div>
+        <p class="mt-2 text-sm muted">Explorations focused on muted context and data-forward emphasis.</p>
+        <div class="mt-4 rounded-xl border border-white/10 bg-black/20 h-28 flex items-center justify-center text-xs faint">
+          Add image: <code class="px-2 py-1 rounded bg-white/5 border border-white/10">images/explore_basemap.png</code>
+        </div>
+      </div>
 
-  <div class="card">
-    <h4>Flood Risk Visualization for Urban Decision-Making</h4>
-    <p>
-      Urban planners needed a fast, intuitive way to explore where flood risk overlaps with vulnerable populations.
-      I designed a map-based interface that prioritizes legibility, scale-aware detail, and interpretability.
+      <div class="glass-soft rounded-2xl p-5">
+        <div class="font-semibold">Color ramp testing</div>
+        <p class="mt-2 text-sm muted">Iterated ramps for contrast, accessibility, and legibility at small sizes.</p>
+        <div class="mt-4 rounded-xl border border-white/10 bg-black/20 h-28 flex items-center justify-center text-xs faint">
+          Add image: <code class="px-2 py-1 rounded bg-white/5 border border-white/10">images/explore_colors.png</code>
+        </div>
+      </div>
+
+      <div class="glass-soft rounded-2xl p-5">
+        <div class="font-semibold">Label + UI layout</div>
+        <p class="mt-2 text-sm muted">Typography, spacing, and interaction notes for map interfaces.</p>
+        <div class="mt-4 rounded-xl border border-white/10 bg-black/20 h-28 flex items-center justify-center text-xs faint">
+          Add image: <code class="px-2 py-1 rounded bg-white/5 border border-white/10">images/explore_labels_ui.png</code>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-4 text-sm muted max-w-4xl">
+      Tip: These don’t need to be “perfect.” A few clean screenshots that show decision-making (hierarchy, color, labeling)
+      can be a huge credibility boost.
     </p>
+  </section>
 
-    <p style="margin-top:10px;color:var(--muted)">
-      Key decisions included muted contextual basemaps, accessible color ramps, simplified boundaries,
-      and interaction patterns that reveal detail progressively as users zoom and explore.
-    </p>
-  </div>
-</section>
+  <!-- About (philosophy) -->
+  <section id="about" class="max-w-6xl mx-auto px-4 pb-10">
+    <div class="flex items-end justify-between gap-4 mb-5">
+      <h2 class="text-xl md:text-2xl font-semibold">About</h2>
+      <div class="text-xs faint hidden md:block">How I think about maps</div>
+    </div>
 
-<section id="about">
-  <div class="section-title">
-    <h3>About</h3>
-    <span>How I approach map design</span>
-  </div>
+    <div class="glass rounded-3xl p-6 md:p-8 shadow-2xl">
+      <p class="text-sm md:text-base muted max-w-4xl">
+        I treat maps as product interfaces — they should be legible, accessible, and purposeful.
+        My approach blends cartographic craft (hierarchy, symbolization, scale) with UX principles
+        (progressive disclosure, clear affordances, and usability). I care about how people interpret spatial
+        information — not just how it looks.
+      </p>
 
-  <div class="card">
-    <p>
-      I treat maps as product interfaces, not illustrations. My approach emphasizes clarity over density,
-      accessibility over decoration, and interaction patterns that support human decision-making.
-      I care deeply about how users interpret spatial information — not just how it looks.
-    </p>
-  </div>
-</section>
+      <div class="mt-6 flex flex-wrap gap-2">
+        <span class="chip text-xs rounded-full px-3 py-1">Accessibility-first</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Clarity over density</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Progressive detail</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Communication</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Systems thinking</span>
+      </div>
+    </div>
+  </section>
 
-<section id="contact">
-  <div class="section-title">
-    <h3>Contact</h3>
-    <span>Recruiters • teams • collaborators</span>
-  </div>
+  <!-- Contact -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 pb-14">
+    <div class="flex items-end justify-between gap-4 mb-5">
+      <h2 class="text-xl md:text-2xl font-semibold">Contact</h2>
+      <div class="text-xs faint hidden md:block">Recruiters • teams • collaborators</div>
+    </div>
 
-  <div class="card">
-    <p>Let’s build clear, useful spatial products.</p>
-    <p style="margin-top:8px">
-      <a href="mailto:kachynwobi@gmail.com">Email</a> ·
-      <a href="https://www.linkedin.com/in/Kachynwobi">LinkedIn</a> ·
-      <a href="https://github.com/YOUR-USERNAME">GitHub</a>
-    </p>
-  </div>
-</section>
+    <div class="glass rounded-3xl p-6 md:p-8 shadow-2xl">
+      <div class="text-base font-semibold">Let’s build clear, useful spatial products.</div>
+      <p class="mt-2 text-sm muted">
+        Reach out via email, or connect on LinkedIn / GitHub.
+      </p>
 
-<footer>
-  <div>© <span id="year"></span> Kachy Nwobi</div>
-  <div><a href="#top">Back to top</a></div>
-</footer>
+      <div class="mt-5 flex flex-wrap gap-3">
+        <a class="glass-soft rounded-full px-5 py-3 text-sm hover:bg-white/5" href="mailto:kachynwobi@gmail.com">
+          Email <span class="faint text-xs ml-1">kachynwobi@gmail.com</span>
+        </a>
+        <a class="glass-soft rounded-full px-5 py-3 text-sm hover:bg-white/5" href="https://www.linkedin.com/in/kachy-nwobi-3463b64a/" target="_blank" rel="noreferrer">
+          LinkedIn
+        </a>
+        <a class="glass-soft rounded-full px-5 py-3 text-sm hover:bg-white/5" href="https://github.com/" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+        <!-- Optional resume link -->
+        <!-- <a class="glass-soft rounded-full px-5 py-3 text-sm hover:bg-white/5" href="KachyNwobi_Resume.pdf" target="_blank" rel="noreferrer">Resume (PDF)</a> -->
+      </div>
 
-</div>
+      <div class="mt-5 text-sm faint">
+        Phone: 484-844-4565
+      </div>
+    </div>
+  </section>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <!-- Footer -->
+  <footer class="border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row gap-3 items-start md:items-center justify-between text-sm faint">
+      <div>© <span id="year"></span> Kachy Nwobi</div>
+      <div class="flex gap-4">
+        <a class="hover:opacity-90 linkish" href="#top">Back to top</a>
+        <a class="hover:opacity-90 linkish" href="https://kachynwobi.netlify.app/" target="_blank" rel="noreferrer">Current site</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
