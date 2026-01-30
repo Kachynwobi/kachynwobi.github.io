@@ -111,7 +111,7 @@
     <section class="glass rounded-3xl shadow-2xl px-6 md:px-10 py-10 md:py-12 overflow-hidden">
       <div class="inline-flex items-center gap-2 rounded-full px-4 py-2 glass-soft text-xs muted">
         <span class="font-semibold" style="color: var(--text);">Based in:</span>
-        Philadelphia, PA • Open to NYC / Remote
+        Philadelphia, PA 
       </div>
 
       <h1 class="mt-5 text-3xl md:text-5xl font-bold tracking-tight">
@@ -416,44 +416,166 @@
     </article>
   </section>
 
-  <!-- Explorations (placeholders you can replace with screenshots) -->
-  <section id="explorations" class="max-w-6xl mx-auto px-4 pb-10">
-    <div class="flex items-end justify-between gap-4 mb-5">
-      <h2 class="text-xl md:text-2xl font-semibold">Map Design & Visual Explorations</h2>
-      <div class="text-xs faint hidden md:block">Basemap • color • labels • UI</div>
+  <!-- Explorations (built from your existing projects/images) -->
+<section id="explorations" class="max-w-6xl mx-auto px-4 pb-10">
+  <div class="flex items-end justify-between gap-4 mb-5">
+    <h2 class="text-xl md:text-2xl font-semibold">Map Design & Visual Explorations</h2>
+    <div class="text-xs faint hidden md:block">Hierarchy • color • labels • UI • data decisions</div>
+  </div>
+
+  <p class="text-sm muted max-w-4xl mb-6">
+    These explorations highlight the design decisions behind my work — not just the final outputs.
+    Each tile shows how I think about hierarchy, accessibility, readability, and usability in map-based interfaces.
+  </p>
+
+  <div class="grid md:grid-cols-3 gap-4">
+
+    <!-- 1) Storymap: Narrative layout -->
+    <div class="glass-soft rounded-2xl p-5">
+      <img
+        src="images/interactive_storymap.png"
+        alt="Storymap exploration showing map + narrative layout hierarchy"
+        class="rounded-xl border border-white/10 w-full h-36 object-cover"
+        loading="lazy"
+      />
+      <div class="mt-3 font-semibold">Narrative layout hierarchy</div>
+      <p class="mt-1 text-sm muted">
+        Balanced map and narrative so the story guides attention while the map remains the primary evidence.
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span class="chip text-xs rounded-full px-3 py-1">Layout</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Storytelling</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Hierarchy</span>
+      </div>
     </div>
 
-    <div class="grid md:grid-cols-3 gap-4">
-      <div class="glass-soft rounded-2xl p-5">
-        <div class="font-semibold">Basemap hierarchy</div>
-        <p class="mt-2 text-sm muted">Explorations focused on muted context and data-forward emphasis.</p>
-        <div class="mt-4 rounded-xl border border-white/10 bg-black/20 h-28 flex items-center justify-center text-xs faint">
-          Add image: <code class="px-2 py-1 rounded bg-white/5 border border-white/10">images/explore_basemap.png</code>
-        </div>
+    <!-- 2) Storymap: Tooltip + legend clarity -->
+    <div class="glass-soft rounded-2xl p-5">
+      <img
+        src="images/interactive_storymap.png"
+        alt="Storymap exploration showing tooltip and legend clarity"
+        class="rounded-xl border border-white/10 w-full h-36 object-cover"
+        loading="lazy"
+      />
+      <div class="mt-3 font-semibold">Tooltip + legend clarity</div>
+      <p class="mt-1 text-sm muted">
+        Designed microcopy for non-technical users: clear units, definitions, and “what this means” context.
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span class="chip text-xs rounded-full px-3 py-1">Microcopy</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Legend</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Usability</span>
       </div>
+      <p class="mt-3 text-xs faint">
+        Tip: swap this image later for a zoomed screenshot of your tooltip/legend if you have it.
+      </p>
+    </div>
 
-      <div class="glass-soft rounded-2xl p-5">
-        <div class="font-semibold">Color ramp testing</div>
-        <p class="mt-2 text-sm muted">Iterated ramps for contrast, accessibility, and legibility at small sizes.</p>
-        <div class="mt-4 rounded-xl border border-white/10 bg-black/20 h-28 flex items-center justify-center text-xs faint">
-          Add image: <code class="px-2 py-1 rounded bg-white/5 border border-white/10">images/explore_colors.png</code>
-        </div>
+    <!-- 3) GeoBIM Maps: Layer organization -->
+    <div class="glass-soft rounded-2xl p-5">
+      <img
+        src="images/customizing_geobim_maps.png"
+        alt="GeoBIM exploration showing layer organization and usability"
+        class="rounded-xl border border-white/10 w-full h-36 object-cover"
+        loading="lazy"
+      />
+      <div class="mt-3 font-semibold">Layer organization for usability</div>
+      <p class="mt-1 text-sm muted">
+        Improved readability by structuring layers, naming consistently, and reducing cognitive load for users.
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span class="chip text-xs rounded-full px-3 py-1">Layer UX</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Clarity</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Navigation</span>
       </div>
+    </div>
 
-      <div class="glass-soft rounded-2xl p-5">
-        <div class="font-semibold">Label + UI layout</div>
-        <p class="mt-2 text-sm muted">Typography, spacing, and interaction notes for map interfaces.</p>
-        <div class="mt-4 rounded-xl border border-white/10 bg-black/20 h-28 flex items-center justify-center text-xs faint">
-          Add image: <code class="px-2 py-1 rounded bg-white/5 border border-white/10">images/explore_labels_ui.png</code>
+    <!-- 4) GeoBIM Maps: Progressive detail -->
+    <div class="glass-soft rounded-2xl p-5">
+      <img
+        src="images/customizing_geobim_maps.png"
+        alt="GeoBIM exploration showing progressive detail and decluttering"
+        class="rounded-xl border border-white/10 w-full h-36 object-cover"
+        loading="lazy"
+      />
+      <div class="mt-3 font-semibold">Progressive detail + declutter</div>
+      <p class="mt-1 text-sm muted">
+        Reduced visual noise by prioritizing what appears first, and revealing details as users zoom and explore.
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span class="chip text-xs rounded-full px-3 py-1">Progressive detail</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Declutter</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Zoom strategy</span>
+      </div>
+    </div>
+
+    <!-- 5) Midwest Floods: Color ramp + interpretability -->
+    <div class="glass-soft rounded-2xl p-5">
+      <img
+        src="images/midwest_floods_social_vulnerability.png"
+        alt="Exploration showing choropleth color ramp and interpretability"
+        class="rounded-xl border border-white/10 w-full h-36 object-cover"
+        loading="lazy"
+      />
+      <div class="mt-3 font-semibold">Color ramp + interpretability</div>
+      <p class="mt-1 text-sm muted">
+        Chose thematic styling that stays legible at small sizes and avoids misleading contrast spikes in the legend.
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span class="chip text-xs rounded-full px-3 py-1">Choropleth</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Accessibility</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Legibility</span>
+      </div>
+    </div>
+
+    <!-- 6) GeoBIM Schedule Polygons: Phase color system + geometry -->
+    <div class="glass-soft rounded-2xl p-5">
+      <img
+        src="images/geobim_schedule_polygons.png"
+        alt="Exploration showing schedule phase color system and polygon geometry"
+        class="rounded-xl border border-white/10 w-full h-36 object-cover"
+        loading="lazy"
+      />
+      <div class="mt-3 font-semibold">Phase color system + geometry cleanup</div>
+      <p class="mt-1 text-sm muted">
+        Built phase-based symbology that reads quickly, and validated geometry workflows for clean web-ready polygons.
+      </p>
+      <div class="mt-3 flex flex-wrap gap-2">
+        <span class="chip text-xs rounded-full px-3 py-1">Symbology</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Data QA</span>
+        <span class="chip text-xs rounded-full px-3 py-1">Method</span>
+      </div>
+    </div>
+
+    <!-- Bonus 7) Aura: Visual system + interface composition (optional but strong) -->
+    <div class="glass-soft rounded-2xl p-5 md:col-span-3">
+      <div class="grid md:grid-cols-3 gap-4 items-start">
+        <img
+          src="images/Mirrorconcept_2.png"
+          alt="Exploration showing visual system and interface composition from Aura by Paula concept"
+          class="rounded-xl border border-white/10 w-full h-36 object-cover md:col-span-1"
+          loading="lazy"
+        />
+        <div class="md:col-span-2">
+          <div class="font-semibold">Visual system + interface composition (Aura)</div>
+          <p class="mt-1 text-sm muted">
+            Demonstrates product-style visual hierarchy: typography, spacing, and information grouping to keep the interface calm and readable.
+          </p>
+          <div class="mt-3 flex flex-wrap gap-2">
+            <span class="chip text-xs rounded-full px-3 py-1">Visual hierarchy</span>
+            <span class="chip text-xs rounded-full px-3 py-1">Information design</span>
+            <span class="chip text-xs rounded-full px-3 py-1">UI composition</span>
+          </div>
+          <p class="mt-3 text-xs faint">
+            If you prefer to keep this portfolio purely “map-focused,” you can remove this tile — but it helps show design taste.
+          </p>
         </div>
       </div>
     </div>
 
-    <p class="mt-4 text-sm muted max-w-4xl">
-      Tip: These don’t need to be “perfect.” A few clean screenshots that show decision-making (hierarchy, color, labeling)
-      can be a huge credibility boost.
-    </p>
-  </section>
+  </div>
+</section>
+
 
   <!-- About (philosophy) -->
   <section id="about" class="max-w-6xl mx-auto px-4 pb-10">
